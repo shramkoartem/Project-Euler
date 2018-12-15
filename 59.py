@@ -11,11 +11,15 @@ for a in range(97,123):
     for b in range(97,123):
         for c in range(97,123):
             row = []
-            for i in range(0,len(s)-1,3):
-                q = [chr(s[i]^a), chr(s[i+1]^b), chr(s[i+2]^c)]
-                for j in q:
-                    row.append(j)
-            if bool(re.match("[ a-z-(]", "".join(row))):
+            
+            for i in range(0,len(s),3):
+                try:
+                    q = [chr(s[i]^a), chr(s[i+1]^b), chr(s[i+2]^c)]
+                    for j in q:
+                        row.append(j)
+                except IndexError:
+                    break
+            if "the" in "".join(row).lower()[:10]:
                 print(a,b,c)
                 print(row[:10])
                 p.append(row)
