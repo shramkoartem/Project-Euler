@@ -1,4 +1,4 @@
-cubes = [i**3 for i in range(1000,10000)]
+cubes = [i**3 for i in range(5000,10000)]
 
 def digits(n):
     ans = str(n)
