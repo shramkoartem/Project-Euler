@@ -13,7 +13,21 @@ d = 7
 # once the loop stop, we know that the next fraction is lower than 3/7
 while a*d > c*b:
     a += -1
-    b = round((a*d-1)/c,0)
+    b = round((a*d-1)/c,0)+1
 
 a += -1
 print(a)
+
+
+# aletranitevy with pyspark
+
+from pyspark import SparkContext
+sc = SparkContext()
+
+def b(a):
+    return int((a*7-1)/3)+1
+
+rdd = sc.parallelize([[a, b(a)] for a in range(428572,1,-1) if a*7 < b(a)*3] and b(a)<1000000)
+
+rdd.collect()[0]
+
