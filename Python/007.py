@@ -1,13 +1,18 @@
-primes = []
-n = 1000000
-for p in range(2, n+1):
-    for i in range(2, p):
-        if p % i == 0:
-            break
-    else:
-        primes.append(p)
-print('Done')
+# update 09.07.2019
 
-104743
+def isprime(n):
+    if n < 2:
+        return False
+    if n%2 == 0 and n != 2:
+        return False
+    
+    for i in range(3, int(n**0.5)+1, 2):
+        if n%i == 0:
+            return False
+    return True
 
-#bad!
+primes = [i for i in range(200000) if isprime(i)]
+
+primes[10000]
+#104743
+
