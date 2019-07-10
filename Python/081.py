@@ -6,5 +6,6 @@ for i in range(78, -1, -1):
     
 for i in range(78, -1, -1):
     for j in range(78, -1, -1):
-        print("{} {}".format(i, j))
         test[i,j] += min(test[i+1,j],test[i,j+1])
+
+test[0,0]
